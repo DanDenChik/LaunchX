@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, BaseUserManager
-import constants
 from django.utils.translation import gettext_lazy as _
 
 
@@ -24,7 +23,6 @@ class UserManager(BaseUserManager):
     def create_superuser(self, email, password, **extra_fields):
         extra_fields.setdefault("is_staff", True)
         extra_fields.setdefault("is_superuser", True)
-        extra_fields.setdefault("user_type", constants.SUPERUSER)
         if extra_fields.get("is_staff") is not True:
             raise ValueError("Superuser must have is_staff=True.")
         if extra_fields.get("is_superuser") is not True:
@@ -42,6 +40,4 @@ class User(AbstractUser):
 
     phone = models.CharField(max_length=20, default="")
     name = models.CharField(max_length=40, default="")
-    user_type = models.PositiveSmallIntegerField(
-        choices=constants.USER_TYPE_CHOICES, default=constants.SUPERUSER
-    )
+    streak = models.PositiveIntegerField(default=0)
