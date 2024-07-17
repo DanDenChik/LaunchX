@@ -28,7 +28,8 @@ SECRET_KEY = "django-insecure-a@33%tdv3xrm8+es*qpi_)kiy8bp=05%pet_i*w)7&1b$fl3ki
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
+
 
 
 # Application definition
@@ -40,8 +41,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    'rest_framework',
-    'rest_framework_simplejwt.token_blacklist',
+    "rest_framework",
+    "rest_framework_simplejwt.token_blacklist",
     "users",
 ]
 
